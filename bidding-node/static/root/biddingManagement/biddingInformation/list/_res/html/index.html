@@ -22,14 +22,14 @@
             
             <span></span>
         </li>
-        <li class="list-all" ng-repeat="lists in infoLists|filter:teamInfo" style="display: {{lists._delete?'none':'block'}};">
+        <li class="list-all" ng-repeat="lists in infoLists" style="display: {{lists._delete?'none':'block'}};">
             <section>
                 <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
                     <p mod>{{$index+1+num}}</p>
                     <p mod>{{lists.biddingNumber}}</p>
                     <p mod>{{lists.url}}</p>
                     <p mod>{{lists.webName}}</p>
-                    <p mod>{{lists.biddingType|cover}}</p>
+                    <p mod>{{lists.biddingType}}</p>
                     <p mod>{{lists.businessType|cover}}</p>
                     <p mod>{{lists.businessDirectionSubject}}</p>
                     <p mod>{{lists.tenderModule}}</p>
@@ -43,37 +43,41 @@
                         <li>
                             <p class="see-parent">
                                 <span>项目名称</span>
-                                <span>报名时间</span>
+                                <span>报名开始时间</span>
+                                <span>报名结束时间</span>
                                 <span>投标时间</span>
                                 <span>投标资格要求</span>
                                 <span>省份</span>
                                 <span>地市</span>
                                 <span>账号</span>
-                                <span>密码</span>
+                                
                             </p>
                             <p class="see-children">
                                 <span mod>{{lists.projectName}}</span>
-                                <span mod>{{lists.registrationTime}}</span>
+                                <span mod>{{lists.registrationStartTime}}</span>
+                                <span mod>{{lists.registrationEndTime}}</span>
                                 <span mod>{{lists.biddingTime}}</span>
                                 <span mod>{{lists.biddingQualifications}}</span>
                                 <span mod>{{lists.provinces}}</span>
                                 <span mod>{{lists.cities}}</span>
                                 <span mod>{{lists.account}}</span>
-                                <span mod>{{lists.password}}</span>
+                                
                             </p>
                         </li>
                         <li>
                             <p class="see-parent">
+                                <span>密码</span>
                                 <span>注册人</span>
                                 <span>注册信息</span>
                                 <span>状态</span>
                                 <span>购买标书时间</span>
-                                <span>价格</span>
+                                <span>标书价格</span>
                                 <span>购买标书要求</span>
                                 <span>交保证金时间</span>
-                                <span>交保证金方式</span>
+                                
                             </p>
                             <p class="see-children">
+                                <span mod>{{lists.password}}</span>
                                 <span mod>{{lists.registrant}}</span>
                                 <span mod>{{lists.registrationInfo}}</span>
                                 <span mod>{{lists.status|cover}}</span>
@@ -81,17 +85,49 @@
                                 <span mod>{{lists.price}}</span>
                                 <span mod>{{lists.buyTenderRequirements}}</span>
                                 <span mod>{{lists.marginTime}}</span>
-                                <span mod>{{lists.marginMethod}}</span>
+                                
                             </p>
                         </li>
                         <li>
                             <p class="see-parent">
+                                <span>交保证金方式</span>
                                 <span>保证金退回时间</span>
                                 <span>备注</span>
+                                <span>年份</span>
+                                <span>月份</span>
+                                <span>保证金金额</span>
+                                <span>退回保证金金额</span>
+                                <span>竞争对手数量</span>
+
+
+
                             </p>
                             <p class="see-children">
+                                <span mod>{{lists.marginMethod}}</span>
                                 <span mod>{{lists.backTimeDeposit}}</span>
                                 <span mod>{{lists.remark}}</span>
+                                <span mod>{{lists.year}}</span>
+                                <span mod>{{lists.month}}</span>
+                                <span mod>{{lists.marginPrice}}</span>
+                                <span mod>{{lists.returnMarginPrice}}</span>
+                                <span mod>{{lists.contendNum}}</span>
+
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>是否进行项目测算</span>
+                                <span>项目测算是否通过</span>
+                                <span>规模数量</span>
+                                <span>是否转为商机</span>
+                                <span>更新时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.projectEstimates|cover}}</span>
+                                <span mod>{{lists.passProjectEstimates|cover}}</span>
+                                <span mod>{{lists.scale}}</span>
+                                <span mod>{{lists.opportunity|cover}}</span>
+                                <span mod>{{lists.updateTime}}</span>
                             </p>
                         </li>
                     </ul>

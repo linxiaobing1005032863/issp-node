@@ -46,10 +46,17 @@ app.controller('websiteCtrl',function ($scope,$state) {
     if(!$scope.page){
         $scope.page =$location.search().page;
     }
+
     $scope.delete = function(){
         if($scope.idListd){
             $state.go('root.biddingManagement.websiteInfo.list[12]',{id:$scope.idListd,name:'delete',page:$scope.page});
             $scope.menuClass = 'deleteMenu'
+        }
+    };
+    $scope.congeal = function(){
+        if($scope.idListd){
+            $state.go('root.biddingManagement.websiteInfo.list[12]',{id:$scope.idListd,name:'congeal',page:$scope.page});
+            $scope.menuClass = 'congealMenu'
         }
     };
 
@@ -66,7 +73,7 @@ app.controller('websiteCtrl',function ($scope,$state) {
         $scope.menuClass = 'addMenu';
         $scope.idListd = ''
     };
-    websiteSer.websitePermission().then(function(response){
+    /*websiteSer.websitePermission().then(function(response){
         if(response.data.code == 0){
             var data = response.data.data;
             if(data && data.length){
@@ -81,6 +88,48 @@ app.controller('websiteCtrl',function ($scope,$state) {
         }else{
             $scope.isHide = false;
         }
-    });
+    });*/
+});
+//自定义过滤
+app.filter('cover', function(){
+    return function (val) {
+        var result;
+        switch(val){
+            case "INVITEDTENDERING":
+                result = "邀请招标";
+                break;
+            case "OPENTENDERING":
+                result = "公开招标";
+                break;
+            case "MOBILECOMMUNICATION":
+                result = "移动通信";
+                break;
+            case "SOFTWAREDEVELOPMENT":
+                result = "软件开发";
+                break;
+            case "INTELLIGENTSYSTEMINTEGRATION":
+                result = "智能系统集成";
+                break;
+            case "PLANNINGMARKETINGSOLUTIONS":
+                result = "策划与营销方案";
+                break;
+            case "THAW":
+                result = "解冻";
+                break;
+            case "CONGEAL":
+                result = "冻结";
+                break;
+            case "DELETE":
+                result = "删除";
+                break;
+            case "NOACTIVE":
+                result = "未激活";
+                break;
+            case "UNREVIEW":
+                result = "未审核";
+                break;
+        }
+        return result;
+    }
 });
 
